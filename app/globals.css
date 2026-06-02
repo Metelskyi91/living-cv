@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --card: 248 250 252;
+    --card-foreground: 15 23 42;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --accent: 59 130 246;
+    --accent-foreground: 255 255 255;
+    --primary: 15 23 42;
+    --primary-foreground: 255 255 255;
+    --border: 226 232 240;
+  }
+
+  .dark {
+    --background: 2 6 23;
+    --foreground: 226 232 240;
+    --card: 15 23 42;
+    --card-foreground: 226 232 240;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+    --accent: 96 165 250;
+    --accent-foreground: 15 23 42;
+    --primary: 226 232 240;
+    --primary-foreground: 15 23 42;
+    --border: 30 41 59;
+  }
+
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, #00ff9c 0%, #00e5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .classic-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .terminal-card {
+    background: rgba(10, 14, 26, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 255, 156, 0.2);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(0, 255, 156, 0.3),
+      0 0 20px rgba(0, 255, 156, 0.1);
+  }
+
+  .print-clean {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print-clean * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 156, 0.3);
+    border-radius: 3px;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white;
+      color: black;
+    }
+
+    .print-break {
+      page-break-before: always;
+    }
+  }
+}
